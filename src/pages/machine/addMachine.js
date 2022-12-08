@@ -41,8 +41,8 @@ export default function AddMachine() {
                     <Campo nome="Categoria"/>
                 </View>
                 <View style={styles.row}>
-                <Campo nome="Modelo"/>
-                <Campo nome="Tag"/>
+                    <Campo nome="Modelo"/>
+                    <Campo nome="Tag"/>
                 </View>
                 <View >
                     <Text style={styles.textoSerie}>Numero de série</Text>
