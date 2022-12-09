@@ -1,13 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
-
+function Header(props){
+    return(
+      <View>
+        <Text>
+            {props.titulo}
+        </Text>
+      </View>
+    );
+  }
 
 export default function ListMachine() {
     return (
         <View style={styles.container}>
-            <Text>Digite as principais informações da sua</Text>
-            <Text>máquina</Text>
+            <Header titulo="Lista de Máquinas"/>
         </View>
     );
 }

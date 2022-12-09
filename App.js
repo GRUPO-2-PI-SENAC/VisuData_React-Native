@@ -1,8 +1,7 @@
 import React from 'react';
-import { } from 'react-native';
+import { View } from 'react-native';
 import Routes from './src/routes';
 import { NavigationContainer } from '@react-navigation/native'
-
 
 
 export default function App() {
