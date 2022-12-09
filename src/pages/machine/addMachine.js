@@ -70,7 +70,10 @@ const styles = StyleSheet.create({
     },
 
     header: {
-        padding: 20,
+        paddingTop: 10, 
+        paddingBottom: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
         alignSelf: 'center'
         
     },
@@ -85,7 +88,7 @@ const styles = StyleSheet.create({
     main: {
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: 40,
+        paddingTop: 10,
 
     },
     input: {
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
         width: 150,
         height: 40,
         marginRight: 10,
-        marginLeft: 10,
+        // marginLeft: 10,
         marginBottom: 10,
     },
 
@@ -107,7 +110,7 @@ const styles = StyleSheet.create({
     
     texto:{
         marginRight: 8,
-        marginLeft: 10,
+        // marginLeft: 10,
         fontWeight: 'bold', 
         width: 84,
     },
@@ -128,14 +131,14 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         width: 90,
         height: 20,
-        marginRight: 10,
-        marginLeft: 10,
+        marginRight: 23,
+        // marginLeft: 10,
         marginBottom: 10,
         alignSelf: 'left',
     },
 
     button: {
-        marginTop: 20,
+        marginTop: 10,
         paddingLeft: 100,
         paddingRight: 100,
         paddingTop: 10, 
