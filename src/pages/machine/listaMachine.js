@@ -1,4 +1,6 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Badge } from 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
     const modelo = "HT-605"
     const serie = "12312412312"
@@ -18,7 +20,8 @@ function Header(props){
 
 function Status(){
     return(
-        <span style={styles.status}>---</span>
+
+        <span class="badge text-bg-danger"> </span>
     );
 }
 
