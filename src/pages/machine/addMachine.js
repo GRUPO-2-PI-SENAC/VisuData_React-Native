@@ -70,8 +70,9 @@ const styles = StyleSheet.create({
     },
 
     header: {
-        padding: 10,
+        padding: 20,
         alignSelf: 'center'
+        
     },
     textoHeader: {
         fontSize: 27,
@@ -105,9 +106,10 @@ const styles = StyleSheet.create({
     },
     
     texto:{
-        marginRight: 10,
+        marginRight: 8,
         marginLeft: 10,
         fontWeight: 'bold', 
+        width: 84,
     },
 
     textoSerie: {
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginLeft: 10,
         marginBottom: 10,
+        alignSelf: 'left',
     },
 
     button: {
