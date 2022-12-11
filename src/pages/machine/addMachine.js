@@ -1,6 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
+var categoryName = "";
+var brandName = "";
+var modelName = "";
+var tag = ""; 
+var maxTemp = 0 ; 
+var minTemp = 0 ;
+var maxVibration = 0; 
+var minVibration = 0 ;
+var minNoise = 0 ; 
+var maxNoise = 0 ; 
+
 function Grandeza(props) {
     return(
         <View style={styles.row}>
