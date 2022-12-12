@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native';
 
 var categoryName = "";
 var brandName = "";
@@ -14,17 +14,17 @@ var maxNoise = 0 ;
 
 function Grandeza(props) {
     return(
-        <View style={styles.row}>
-            <View style={styles.colGrandeza}>
-                <Text style={styles.texto}>Mínimo</Text>
+        <View style={styles.rowGrandeza}>
+            <View >
+                <Text style={styles.textoGrandeza}>Mínimo</Text>
                 <TextInput style={styles.inputGrandeza}/>
             </View>
-            <View style={styles.colGrandeza}>
-                <Text style={styles.texto}>Máximo</Text>
+            <View >
+                <Text style={styles.textoGrandeza}>Máximo</Text>
                 <TextInput style={styles.inputGrandeza}/>
             </View>
-            <View style={styles.colGrandeza}>
-                <Text style={styles.texto}>{props.nome}</Text>
+            <View >
+                <Text style={styles.textoGrandeza}>{props.nome}</Text>
             </View>
         </View>
     );
@@ -55,17 +55,17 @@ export default function AddMachine() {
                     <Campo nome="Modelo"/>
                     <Campo nome="Tag"/>
                 </View>
-                <View >
+                
                     <Text style={styles.textoSerie}>Numero de série</Text>
                     <TextInput style={styles.inputSerie}/>
-                </View>
-
+                
                 <Grandeza nome="Temperatura"/>
                 <Grandeza nome="Vibração"/>
                 <Grandeza nome="Ruído"/>
-
-                <TouchableOpacity style = {styles.button}>
-                    <Text  style={styles.textoButton}>Cadastrar</Text>
+            </View>
+            <View style={styles.footer}>
+                <TouchableOpacity style={styles.button}>
+                     <Text  style={styles.textoButton}>Cadastrar</Text>
                 </TouchableOpacity>
             </View>
             
@@ -73,79 +73,104 @@ export default function AddMachine() {
     );
 }
 
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
     container: {
+    width: screenWidth,
+    height: screenHeight,
     backgroundColor: '#fff',
     alignItems: 'center',
-    flexGrow: 1,
+    flex:1,
+    
     },
 
     header: {
-        paddingTop: 10, 
-        paddingBottom: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
+        flex: 0.1,
+        paddingTop: 5,
+        width: screenWidth * 0.9,
         alignSelf: 'center'
         
     },
     textoHeader: {
-        fontSize: 27,
+        alignItems: 'center',
+        fontSize: 25,
     },
     textoHeaderSec: {
-        fontSize: 27,
+        fontSize: 25,
         color: '#09427D'
 
     },
     main: {
+        flex: 0.8,
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 10,
 
     },
+
+    row: {
+        flexDirection: 'row',
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: screenWidth,
+    },
+
+    texto:{
+        width: screenWidth * 0.4,
+        marginTop: 10,
+        fontWeight: 'bold',
+        marginHorizontal: 10,
+
+    },
+
     input: {
         borderBottomWidth: 1,
-        width: 150,
+        width: screenWidth * 0.4,
         height: 40,
-        marginRight: 10,
-        // marginLeft: 10,
-        marginBottom: 10,
+        marginHorizontal: 10,
     },
 
     inputSerie: {
         borderBottomWidth: 1,
-        width: 320,
+        width: screenWidth * 0.85 ,
         height: 40,
-        marginBottom: 10,
+        marginBottom: 5,
 
     },
     
-    texto:{
-        marginRight: 8,
-        // marginLeft: 10,
-        fontWeight: 'bold', 
-        width: 84,
-    },
-
     textoSerie: {
+        marginTop: 10,
+        fontWeight: 'bold', 
+        width: screenWidth * 0.85,
+    },
+
+    rowGrandeza: {
+        flexDirection: 'row',
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: screenWidth,
+    },
+
+    textoGrandeza: {
+        width: screenWidth * 0.27,
         fontWeight: 'bold', 
     },
 
-    row: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        alignSelf: 'left',
-    },
-    colGrandeza: {
-        flexDirection: 'col', 
-    },
     inputGrandeza: {
         borderBottomWidth: 1,
-        width: 90,
+        width: screenWidth * 0.22,
         height: 20,
         marginRight: 23,
-        // marginLeft: 10,
         marginBottom: 10,
         alignSelf: 'left',
+    },
+
+    footer: {
+        flex: 0.1,
     },
 
     button: {
@@ -155,14 +180,13 @@ const styles = StyleSheet.create({
         paddingTop: 10, 
         paddingBottom: 10,
         borderRadius: 10,
-
         backgroundColor: '#09427D',
 
     },
 
     textoButton: {
         color: '#fff',
-        fontSize: 20,
+        fontSize: 18,
     }
 
 

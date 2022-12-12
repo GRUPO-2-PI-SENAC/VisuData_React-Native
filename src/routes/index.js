@@ -38,12 +38,12 @@ export default function App() {
                 <Ionicons name="list" size={size} color="white" />
             ),
             }} />
-        <Tab.Screen name="Perfil" component={Profile} options={{
+        {/* <Tab.Screen name="Perfil" component={Profile} options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
                 <FontAwesome5 name="user" size={size} color="white"/>
             ),
-            }} />
+            }} /> */}
         
     </Tab.Navigator>
     );

@@ -77,8 +77,9 @@ export default function Home(navigation) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 'none',
+        flex: 1,
         backgroundColor: '#fff',
+        alignItems: 'center',
         flexGrow: 1,
         width: screenWidth,
         height: screenHeight,
@@ -142,7 +143,8 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: 'row',
-        alignItems: 'center',
+        // alignItems: 'center',
+        justifyContent: 'center',
         alignSelf: 'left',
     },
     firstSetBt: {

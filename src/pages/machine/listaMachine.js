@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { Badge } from 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
     const modelo = "HT-605"
     const serie = "12312412312"
@@ -50,6 +50,9 @@ export default function ListMachine() {
         </View>
     );
 }
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     container: {
