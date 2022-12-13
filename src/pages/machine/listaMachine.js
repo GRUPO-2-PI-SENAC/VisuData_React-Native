@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     },
 
     colIcons: {
-        marginTop: 30,
+        marginTop: 40,
         marginLeft: 10
     },
 
