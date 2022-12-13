@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,18 +28,18 @@ function Status(){
 
 function Cell(props){
 
-    return(
-        <View style={styles.cell}>
-            <View style={styles.row}>
-                <Text style={styles.textCellTop}>{props.modelo}</Text> 
-                <Text style={styles.textCellTop}>{props.serie}</Text> 
-            </View>
-            <View style={styles.row}>
-                <Text style={styles.textCellBottom}><Status/>{props.temperatura}</Text> 
-                <Text style={styles.textCellBottom}><Status/>{props.ruido}</Text> 
-                <Text style={styles.textCellBottom}><Status/>{props.vibracao}</Text> 
-            </View>
+    return(        
+    <TouchableOpacity style={styles.buttonCell}>
+        <View style={styles.row}>
+            <Text style={styles.textCellTopMod}>{props.modelo}</Text> 
+            <Text style={styles.textCellTopSerie}>{props.serie}</Text> 
         </View>
+        <View style={styles.row}>
+            <Text style={styles.textCellBottom}><Status/>{props.temperatura}</Text> 
+            <Text style={styles.textCellBottom}><Status/>{props.ruido}</Text> 
+            <Text style={styles.textCellBottom}><Status/>{props.vibracao}</Text> 
+        </View>
+    </TouchableOpacity>
     );
 } 
 
@@ -46,7 +47,13 @@ export default function ListMachine() {
     return (
         <View style={styles.container}>
             <Header titulo="Lista de Máquinas"/>
-            <Cell modelo={modelo} serie={serie} temperatura={temperatura} ruido={ruido} vibracao={vibracao} />
+
+            <Cell style={styles.buttonCell}
+            modelo={modelo} 
+            serie={serie} 
+            temperatura={temperatura} 
+            ruido={ruido} 
+            vibracao={vibracao} />
         </View>
     );
 }
@@ -56,10 +63,14 @@ const screenHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    flexGrow: 1,
+        width: screenWidth,
+        height: screenHeight,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        flex:1,
+        
     },
+
     header: {
         padding: 20,
         alignItems: 'left',
@@ -68,34 +79,42 @@ const styles = StyleSheet.create({
     textHeader: {
         fontSize: 27,
     },
-    cell: {
-        alignItems: 'center',  
+    
+    buttonCell: {
+        // flex: 0.15,
+        height: screenHeight * 0.1,
+        width: screenWidth * 0.9,
         backgroundColor: '#E9F0F8', 
-        marginRight: 20,
-        marginLeft: 20,
         borderRadius: 10,
-        padding: 5,
+        justifyContent: 'center',
+
     },
-    textCellTop: {
-        left: 0,
-        right: 0,
-        marginHorizontal: 10,
-        fontSize: 23,
-        width: 150,
+
+    textCellTopMod: {
+        // marginHorizontal: 8,
+        fontSize: 21,
+        width: screenWidth * 0.4,
         color: '#09427D',
         fontWeight: 'bold',
+        textAlign: 'left',
+    },
+    textCellTopSerie: {
+        // marginHorizontal: 10,
+        fontSize: 21,
+        width: screenWidth * 0.4,
+        color: '#09427D',
+        fontWeight: 'bold',
+        textAlign: 'right',
     },
     textCellBottom: {
-        left: 0,
-        right: 0,
         marginTop: 5,
-        marginHorizontal: 35,
         fontWeight: 'bold',
-        width: 60,
-
+        width: screenWidth * 0.3,
+        textAlign: 'center',
     },
     row: {
         flexDirection: 'row',
+        justifyContent: 'center',
         
     },
     status: {
@@ -105,5 +124,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         fontSize: 10,
         
-    }
+    },
+
+    
 });

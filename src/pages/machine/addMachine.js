@@ -78,12 +78,11 @@ const screenHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     container: {
-    width: screenWidth,
-    height: screenHeight,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    flex:1,
-    
+        width: screenWidth,
+        height: screenHeight,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        flex:1,
     },
 
     header: {
