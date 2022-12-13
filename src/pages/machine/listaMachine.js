@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { useEffect, useState } from 'react';
 
 // import { FadeOutToBottomAndroidSpec } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionSpecs';
 
@@ -58,6 +59,15 @@ function Icons(){
 
 export default function ListMachine() {
 
+    const [ machines, setMachines ] = useState ([]);
+
+    useEffect(() => {
+        fetch(`https://localhost:54332/Machine/getall`)
+        .then(response => response.json())
+        .then(data => setMachines(data))
+        
+    }, [])
+
     return (
         <View style={styles.container}>
             <Header titulo="Lista de Máquinas"/>
@@ -69,6 +79,25 @@ export default function ListMachine() {
                     ruido={ruido} 
                     vibracao={vibracao} 
                 />
+                <Cell 
+                    modelo={modelo} 
+                    serie={serie} 
+                    temperatura={temperatura} 
+                    ruido={ruido} 
+                    vibracao={vibracao} 
+                />
+                {/* <>
+                    {machines.map((machine) => 
+                        (<Cell 
+                            key={machine.id}
+                            modelo={machine.model} 
+                            serie={machine.serialNumber} 
+                            temperatura={machine.tempAvg} 
+                            ruido={machine.noiseAvg} 
+                            vibracao={machine.vibrationAvg} 
+                        />)
+                    )}
+                </> */}
                 <Icons/>
             </View>
         </View>
@@ -105,6 +134,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         marginLeft: 2,
     },
+    
     textCellTopSerie: {
         fontSize: 21,
         width: screenWidth * 0.4,
@@ -113,16 +143,19 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         marginRight: 2,
     },
+
     textCellBottom: {
         marginTop: 5,
         fontWeight: 'bold',
         width: screenWidth * 0.3,
         textAlign: 'center',
     },
+
     row: {
         flexDirection: 'row',
         justifyContent: 'center',  
     },
+
     buttonIcon: {
         width: screenWidth * 0.1,
         height: screenHeight * 0.05,
@@ -142,3 +175,4 @@ const styles = StyleSheet.create({
     },
 
 });
+
