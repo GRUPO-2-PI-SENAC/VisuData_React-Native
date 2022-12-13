@@ -7,10 +7,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AddMachine from '../pages/machine/addMachine';
 import ListMachine from '../pages/machine/listaMachine';
 import Home from '../pages/enterprise/home';
+import EditMachine from '../pages/machine/editMachine';
 
 const Tab = createBottomTabNavigator();
 const AppStack = createStackNavigator();
-
 
 function AddToInfoMachine(){
 
@@ -48,6 +48,24 @@ function HomeToListMachine(){
     );
 }
 
+function ListToEditMachine(){
+
+    return(
+        <AppStack.Navigator>
+            <AppStack.Screen 
+                name="listMachine" 
+                component={ListMachine}
+                options={{ headerShown: false }}
+                />
+            <AppStack.Screen 
+                name="editMachine" 
+                component={EditMachine}
+                options={{ headerShown: false }}
+            />
+        </AppStack.Navigator>
+    );
+}
+
 export default function App() {
     return (
     <Tab.Navigator 
@@ -70,7 +88,7 @@ export default function App() {
                 <Ionicons name="add-circle-outline" size={size} color="white" />
             ),
             }} />
-        <Tab.Screen name="Lista" component={ListMachine} options={{
+        <Tab.Screen name="Lista" component={ListToEditMachine} options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
                 <Ionicons name="list" size={size} color="white" />

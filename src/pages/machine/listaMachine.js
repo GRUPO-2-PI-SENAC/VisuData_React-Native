@@ -23,8 +23,6 @@ function Header(props){
 
 function Cell(props){
 
-    const navigation = useNavigation();
-
     return(        
     <TouchableOpacity style={styles.buttonCell} >
         <View style={styles.row}>
@@ -43,9 +41,11 @@ function Cell(props){
 
 function Icons(){
 
+    const navigation = useNavigation();
+
     return(
         <View style={styles.colIcons}>
-            <TouchableOpacity style={styles.buttonIcon}>
+            <TouchableOpacity style={styles.buttonIcon} onPress={() => navigation.navigate('editMachine')}>
                 <Ionicons name="brush" color="green" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonIcon}>
