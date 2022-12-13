@@ -15,31 +15,6 @@ let minNoise = "";
 let maxNoise = ""; 
 let serialNumber= "";
 
-
-async function sendForm(){
-    let response = await fetch('https://localhost:54332/Machine/update',{
-       method: 'POST',
-       headers:{
-        Accept: 'application/json',
-        'Content-Type' : 'application/json'
-       },
-       body: JSON.stringify({
-        machineId: machines.machineId,
-                model: model,
-                serialNumber : serialNumber,
-                maxTemp: maxTemp,
-                minTemp: minTemp,
-                maxNoise: maxNoise,
-                minNoise: minNoise,
-                maxVibration: maxVibration,
-                minVibration: minVibration,
-                category: category,
-                tag: tag,
-                brand: brand
-       }) 
-    });
-}
-
 function Grandeza(props) {
     return(
         <View style={styles.rowGrandeza}>
@@ -80,19 +55,30 @@ export default function EditMachine() {
         
     }, [])
 
-    const [novoCadastro, setNovoCadastro] = useState({
-        category: "",
-        brand: "", 
-        tag: "",
-        model: "",
-        minTemp: "",
-        maxTemp: "",
-        minVibration: "",
-        maxVibration: "",
-        minNoise: "",
-        maxNoise: "", 
-        serialNumber: "",
-    })
+    async function sendForm(){
+        let response = await fetch('https://localhost:54332/Machine/update',{
+           method: 'PUT',
+           headers:{
+            Accept: 'application/json',
+            'Content-Type' : 'application/json'
+           },
+           body: JSON.stringify({
+            machineId: machines.machineId,
+                    brand: brand,
+                    model: model,
+                    serialNumber : serialNumber,
+                    category: category,
+                    tag: tag,
+                    minTemp: minTemp,
+                    maxTemp: maxTemp,
+                    minVibration: minVibration,
+                    maxVibration: maxVibration,
+                    maxNoise: maxNoise,
+                    minNoise: minNoise     
+           }) 
+        });
+    }
+
     
 
     return (
