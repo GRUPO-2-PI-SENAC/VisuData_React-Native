@@ -1,17 +1,20 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import {useEffect, UseState} from 'react'
 // import { Grandeza, Campo} from './addMachine';
 
-var categoryName = "";
-var brandName = "";
-var modelName = "";
-var tag = ""; 
-var maxTemp = 0 ; 
-var minTemp = 0 ;
-var maxVibration = 0; 
-var minVibration = 0 ;
-var minNoise = 0 ; 
-var maxNoise = 0 ; 
+let category = "";
+let brand = ""; 
+let tag = "";
+let model = "";
+let minTemp = "";
+let maxTemp = "";
+let minVibration = "";
+let maxVibration = "";
+let minNoise = "";
+let maxNoise = ""; 
+let serialNumber= "";
+
 
 function Grandeza(props) {
     return(
@@ -47,32 +50,82 @@ export default function EditMachine() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.textoHeader}>Edite as principais informações da sua
-                <Text style={styles.textoHeaderSec}> máquina</Text></Text>
+                <Text style={styles.textoHeader}>Edite as principais informações de sua máquina
+                    <Text style={styles.textoHeaderSec}> máquina</Text></Text>
             </View>
             <View style={styles.main}>
                 <View style={styles.row}>
-                    <Campo nome="Marca"/>
-                    <Campo nome="Categoria"/>
+                    <View >
+                        <Text style={styles.texto}>Marca</Text>
+                        <TextInput style={styles.input} onChangeText={text=> brand = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.texto}>Categoria</Text>
+                        <TextInput style={styles.input} onChangeText={text => category = text}/>
+                    </View>
                 </View>
                 <View style={styles.row}>
-                    <Campo nome="Modelo"/>
-                    <Campo nome="Tag"/>
+                    <View >
+                        <Text style={styles.texto}>Modelo</Text>
+                        <TextInput style={styles.input}  onChangeText={text => model = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.texto}>Tag</Text>
+                        <TextInput style={styles.input} onChangeText={text => tag = text}/>
+                    </View>
                 </View>
-                
-                    <Text style={styles.textoSerie}>Numero de série</Text>
-                    <TextInput style={styles.inputSerie}/>
-                
-                <Grandeza nome="Temperatura"/>
-                <Grandeza nome="Vibração"/>
-                <Grandeza nome="Ruído"/>
+
+                <Text style={styles.textoSerie}>Numero de série</Text>
+                <TextInput style={styles.inputSerie}  onChangeText={text => serialNumber = text} />
+
+                <View style={styles.rowGrandeza}>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Mínimo</Text>
+                        <TextInput style={styles.inputGrandeza}  onChangeText={text => minTemp = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Máximo</Text>
+                        <TextInput style={styles.inputGrandeza}  onChangeText={text => maxTemp = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Temperatura</Text>
+                    </View>
+                </View>
+
+                <View style={styles.rowGrandeza}>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Mínimo</Text>
+                        <TextInput style={styles.inputGrandeza}  onChangeText={text => minVibration = text}/>
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Máximo</Text>
+                        <TextInput style={styles.inputGrandeza} onChangeText={text => maxVibration = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Vibração</Text>
+                    </View>
+                </View>
+
+                <View style={styles.rowGrandeza}>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Mínimo</Text>
+                        <TextInput style={styles.inputGrandeza} onChangeText={text => minNoise = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Máximo</Text>
+                        <TextInput style={styles.inputGrandeza} onChangeText={text => maxNoise = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Ruído</Text>
+                    </View>
+                </View>
             </View>
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-                     <Text style={styles.textoButton}>Editar</Text>
+                <TouchableOpacity style={styles.button} onPress={() => sendForm()}>
+                    <Text style={styles.textoButton}>Cadastrar</Text>
                 </TouchableOpacity>
             </View>
-            
+
         </View>
     );
 }
