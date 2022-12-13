@@ -48,6 +48,24 @@ function AddToInfoMachine(){
     );
 }
 
+function HomeToListMachine(){
+
+    return(
+        <AppStack.Navigator>
+            <AppStack.Screen 
+                name="home" 
+                component={Home}
+                options={{ headerShown: false }}
+                />
+            <AppStack.Screen 
+                name="listMachine" 
+                component={ListMachine}
+                options={{ headerShown: false }}
+            />
+        </AppStack.Navigator>
+    );
+}
+
 export default function App() {
     return (
     <Tab.Navigator 
@@ -57,7 +75,7 @@ export default function App() {
             },
         }}
         >
-        <Tab.Screen name="Home" component={Home} options={{
+        <Tab.Screen name="Home" component={HomeToListMachine} options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
                 <Ionicons name="home-outline" color='white' size={size} />

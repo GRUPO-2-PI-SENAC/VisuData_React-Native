@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         paddingTop: 5,
         width: screenWidth * 0.9,
         alignSelf: 'center'
-        
+    
     },
     textoHeader: {
         alignItems: 'center',
@@ -103,14 +103,12 @@ const styles = StyleSheet.create({
     textoHeaderSec: {
         fontSize: 25,
         color: '#09427D'
-
     },
     main: {
         flex: 0.8,
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 10,
-
     },
 
     row: {
@@ -126,7 +124,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
         fontWeight: 'bold',
         marginHorizontal: 10,
-
     },
 
     input: {
@@ -141,7 +138,6 @@ const styles = StyleSheet.create({
         width: screenWidth * 0.85 ,
         height: 40,
         marginBottom: 5,
-
     },
     
     textoSerie: {
@@ -184,13 +180,10 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         borderRadius: 10,
         backgroundColor: '#09427D',
-
     },
 
     textoButton: {
         color: '#fff',
         fontSize: 18,
     }
-
-
 });
