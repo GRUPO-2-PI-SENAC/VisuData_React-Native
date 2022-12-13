@@ -108,12 +108,13 @@ const styles = StyleSheet.create({
     body: {
         justifyContent: 'space-evenly',
         fontFamily: 'Montserrat',
+        marginTop: 20
     },
 
     mainTexts: {
         marginTop: '2',
         fontWeight: 'bold', 
-        fontSize: '25px',
+        fontSize: '24px',
         color: '#212529',
         fontFamily: 'Calibri',
         marginLeft: '4%'
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
         height: '30px',
     },
     amountText: {
-        fontSize: '25px',
+        fontSize: '20px',
         fontWeight: 'bold',
         fontFamily: 'Helvetica',
         marginTop: '5%',
@@ -138,20 +139,21 @@ const styles = StyleSheet.create({
         marginLeft: '5%'
     },
     catSpacing: {
-        marginTop: '2%',
+        marginTop: '4%',
         marginBottom: '2%'
     },
 
     textBt:{
-        fontSize: '18px',
+        fontSize: '16px',
         fontFamily: 'Calibri',
         marginLeft: '2%',
 
-    },    
+    }, 
+
     categories: {
         fontFamily: 'Calibri',
         fontSize: '18px',
-        marginTop: '4%',
+        marginTop: '2%',
         justifyContent: 'space-evenly',
     },
     row: {

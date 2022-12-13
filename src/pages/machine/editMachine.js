@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {useEffect, UseState} from 'react'
+import { useEffect, useState } from 'react';
 // import { Grandeza, Campo} from './addMachine';
 
 let category = "";
@@ -15,6 +15,30 @@ let minNoise = "";
 let maxNoise = ""; 
 let serialNumber= "";
 
+async function sendForm(){
+    let response = await fetch('https://localhost:55186/machine/add',{
+       method: 'POST',
+       headers:{
+        Accept: 'application/json',
+        'Content-Type' : 'application/json'
+       },
+       body: JSON.stringify({
+        id: 1,
+                model: model,
+                serialNumber : serialNumber,
+                maxTemp: maxTemp,
+                minTemp: minTemp,
+                maxNoise: maxNoise,
+                minNoise: minNoise,
+                maxVibration: maxVibration,
+                minVibration: minVibration,
+                category: category,
+                tag: tag,
+                brand: brand,
+                status: ""
+       }) 
+    });
+}
 
 function Grandeza(props) {
     return(
@@ -47,6 +71,15 @@ export default function EditMachine() {
 
     const navigation = useNavigation();
 
+    const [ machines, setMachines ] = useState ([]);
+
+    useEffect(() => {
+        fetch(`https://localhost:54332/Machine/61363`)
+        .then(response => response.json())
+        .then(data => setMachines(data))
+        
+    }, [])
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -57,35 +90,35 @@ export default function EditMachine() {
                 <View style={styles.row}>
                     <View >
                         <Text style={styles.texto}>Marca</Text>
-                        <TextInput style={styles.input} onChangeText={text=> brand = text} />
+                        <TextInput style={styles.input} value={machines.brand} onChangeText={text=> brand = text} />
                     </View>
                     <View >
                         <Text style={styles.texto}>Categoria</Text>
-                        <TextInput style={styles.input} onChangeText={text => category = text}/>
+                        <TextInput style={styles.input} value={machines.category} onChangeText={text => category = text}/>
                     </View>
                 </View>
                 <View style={styles.row}>
                     <View >
                         <Text style={styles.texto}>Modelo</Text>
-                        <TextInput style={styles.input}  onChangeText={text => model = text} />
+                        <TextInput style={styles.input} value={machines.model} onChangeText={text => model = text} />
                     </View>
                     <View >
                         <Text style={styles.texto}>Tag</Text>
-                        <TextInput style={styles.input} onChangeText={text => tag = text}/>
+                        <TextInput style={styles.input} value={machines.tag} onChangeText={text => tag = text}/>
                     </View>
                 </View>
 
                 <Text style={styles.textoSerie}>Numero de série</Text>
-                <TextInput style={styles.inputSerie}  onChangeText={text => serialNumber = text} />
+                <TextInput style={styles.inputSerie} value={machines.serialNumber} onChangeText={text => serialNumber = text} />
 
                 <View style={styles.rowGrandeza}>
                     <View >
                         <Text style={styles.textoGrandeza}>Mínimo</Text>
-                        <TextInput style={styles.inputGrandeza}  onChangeText={text => minTemp = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.minTemp} onChangeText={text => minTemp = text} />
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Máximo</Text>
-                        <TextInput style={styles.inputGrandeza}  onChangeText={text => maxTemp = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.maxTemp} onChangeText={text => maxTemp = text} />
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Temperatura</Text>
@@ -95,11 +128,11 @@ export default function EditMachine() {
                 <View style={styles.rowGrandeza}>
                     <View >
                         <Text style={styles.textoGrandeza}>Mínimo</Text>
-                        <TextInput style={styles.inputGrandeza}  onChangeText={text => minVibration = text}/>
+                        <TextInput style={styles.inputGrandeza} value={machines.minVibration} onChangeText={text => minVibration = text}/>
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Máximo</Text>
-                        <TextInput style={styles.inputGrandeza} onChangeText={text => maxVibration = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.maxVibration} onChangeText={text => maxVibration = text} />
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Vibração</Text>
@@ -109,11 +142,11 @@ export default function EditMachine() {
                 <View style={styles.rowGrandeza}>
                     <View >
                         <Text style={styles.textoGrandeza}>Mínimo</Text>
-                        <TextInput style={styles.inputGrandeza} onChangeText={text => minNoise = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.minNoise} onChangeText={text => minNoise = text} />
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Máximo</Text>
-                        <TextInput style={styles.inputGrandeza} onChangeText={text => maxNoise = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.maxNoise} onChangeText={text => maxNoise = text} />
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Ruído</Text>
@@ -122,7 +155,7 @@ export default function EditMachine() {
             </View>
             <View style={styles.footer}>
                 <TouchableOpacity style={styles.button} onPress={() => sendForm()}>
-                    <Text style={styles.textoButton}>Cadastrar</Text>
+                    <Text style={styles.textoButton}>Editar</Text>
                 </TouchableOpacity>
             </View>
 
@@ -151,10 +184,10 @@ const styles = StyleSheet.create({
     },
     textoHeader: {
         alignItems: 'center',
-        fontSize: 25,
+        fontSize: 20,
     },
     textoHeaderSec: {
-        fontSize: 25,
+        fontSize: 20,
         color: '#09427D'
     },
     main: {
