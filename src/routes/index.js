@@ -87,12 +87,14 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
                 <Ionicons name="add-circle-outline" size={size} color="white" />
             ),
+            headerShown: false
             }} />
         <Tab.Screen name="Lista" component={ListToEditMachine} options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
                 <Ionicons name="list" size={size} color="white" />
             ),
+            headerShown: false
             }} />
         
     </Tab.Navigator>

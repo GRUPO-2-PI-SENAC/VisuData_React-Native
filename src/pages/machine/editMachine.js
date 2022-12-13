@@ -15,15 +15,16 @@ let minNoise = "";
 let maxNoise = ""; 
 let serialNumber= "";
 
+
 async function sendForm(){
-    let response = await fetch('https://localhost:55186/machine/add',{
+    let response = await fetch('https://localhost:54332/Machine/update',{
        method: 'POST',
        headers:{
         Accept: 'application/json',
         'Content-Type' : 'application/json'
        },
        body: JSON.stringify({
-        id: 1,
+        machineId: machines.machineId,
                 model: model,
                 serialNumber : serialNumber,
                 maxTemp: maxTemp,
@@ -34,8 +35,7 @@ async function sendForm(){
                 minVibration: minVibration,
                 category: category,
                 tag: tag,
-                brand: brand,
-                status: ""
+                brand: brand
        }) 
     });
 }
@@ -80,6 +80,21 @@ export default function EditMachine() {
         
     }, [])
 
+    const [novoCadastro, setNovoCadastro] = useState({
+        category: "",
+        brand: "", 
+        tag: "",
+        model: "",
+        minTemp: "",
+        maxTemp: "",
+        minVibration: "",
+        maxVibration: "",
+        minNoise: "",
+        maxNoise: "", 
+        serialNumber: "",
+    })
+    
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -90,7 +105,8 @@ export default function EditMachine() {
                 <View style={styles.row}>
                     <View >
                         <Text style={styles.texto}>Marca</Text>
-                        <TextInput style={styles.input} value={machines.brand} onChangeText={text=> brand = text} />
+                        <TextInput style={styles.input} value={machines.brand} 
+                        onChange={(e) => { setMachines({ ...machines, brand: e.target.value }) }} />
                     </View>
                     <View >
                         <Text style={styles.texto}>Categoria</Text>

@@ -51,6 +51,7 @@ export default function Home(navigation) {
                             />
                         </View>
                         <ButtonCard
+                                style={styles.red}
                                 nameOne="FUNCIONANDO"
                                 nameTwo="EM ALERTA"
                                 number="0"
@@ -67,6 +68,7 @@ export default function Home(navigation) {
                             />
                         </View>
                         <ButtonCard
+                                
                                 nameOne="TODAS AS"
                                 nameTwo="MÁQUINAS"
                                 number="15"
@@ -130,6 +132,7 @@ const styles = StyleSheet.create({
         width: '50px',
         height: '30px',
     },
+
     amountText: {
         fontSize: '20px',
         fontWeight: 'bold',
@@ -164,7 +167,7 @@ const styles = StyleSheet.create({
 
     setBt: {
         backgroundColor: 'white',
-        borderLeftColor: "#0D9B5B",
+        borderLeftColor: "#09427D",
         borderRadius: '10px',
         borderLeftWidth: '5px',
         marginTop: 15,
@@ -172,6 +175,7 @@ const styles = StyleSheet.create({
         height: screenHeight * 0.15,
         width: screenWidth * 0.4,
     },
+
 
     setCatBt: {
         backgroundColor: '#09427D',
