@@ -71,35 +71,22 @@ export default function ListMachine() {
     return (
         <View style={styles.container}>
             <Header titulo="Lista de Máquinas"/>
-            <View style={styles.row}>
-                <Cell 
-                    modelo={modelo} 
-                    serie={serie} 
-                    temperatura={temperatura} 
-                    ruido={ruido} 
-                    vibracao={vibracao} 
-                />
-                <Cell 
-                    modelo={modelo} 
-                    serie={serie} 
-                    temperatura={temperatura} 
-                    ruido={ruido} 
-                    vibracao={vibracao} 
-                />
-                {/* <>
-                    {machines.map((machine) => 
-                        (<Cell 
+            <>
+                {machines.map((machine) => 
+                    (<View style={styles.row}>
+                        <Cell 
                             key={machine.id}
                             modelo={machine.model} 
                             serie={machine.serialNumber} 
                             temperatura={machine.tempAvg} 
                             ruido={machine.noiseAvg} 
                             vibracao={machine.vibrationAvg} 
-                        />)
-                    )}
-                </> */}
-                <Icons/>
-            </View>
+                        />
+                        <Icons/>
+                    </View>)
+                )}
+            </>
+           
         </View>
     );
 }
@@ -134,7 +121,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         marginLeft: 2,
     },
-    
+
     textCellTopSerie: {
         fontSize: 21,
         width: screenWidth * 0.4,
