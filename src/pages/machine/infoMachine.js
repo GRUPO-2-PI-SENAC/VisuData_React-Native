@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 
 export default function InfoMachine(){
     return(
         <View style={styles.container}>
-
+            <Text>Finalmente</Text>
         </View>
     );
 }

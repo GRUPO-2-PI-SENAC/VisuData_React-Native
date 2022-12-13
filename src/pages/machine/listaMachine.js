@@ -1,13 +1,14 @@
-
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
+// import { FadeOutToBottomAndroidSpec } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionSpecs';
 
     const modelo = "HT-605"
     const serie = "12312412312"
     const temperatura = "27ºC"
     const ruido = "220db"
     const vibracao = "64Hz"
+
 
 function Header(props){
     return(
@@ -21,15 +22,16 @@ function Header(props){
 
 function Status(){
     return(
-
         <span class="badge text-bg-danger"> </span>
     );
 }
 
 function Cell(props){
 
+    const navigation = useNavigation();
+
     return(        
-    <TouchableOpacity style={styles.buttonCell}>
+    <TouchableOpacity style={styles.buttonCell}  onPress={() => navigation.navigate('infoMachine')}>
         <View style={styles.row}>
             <Text style={styles.textCellTopMod}>{props.modelo}</Text> 
             <Text style={styles.textCellTopSerie}>{props.serie}</Text> 
@@ -40,10 +42,13 @@ function Cell(props){
             <Text style={styles.textCellBottom}><Status/>{props.vibracao}</Text> 
         </View>
     </TouchableOpacity>
+    
     );
 } 
 
+
 export default function ListMachine() {
+
     return (
         <View style={styles.container}>
             <Header titulo="Lista de Máquinas"/>

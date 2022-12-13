@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native';
 
 var categoryName = "";

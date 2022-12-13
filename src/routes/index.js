@@ -1,14 +1,34 @@
+import * as React from 'react';
+import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { createStackNavigator } from '@react-navigation/stack';
+import InfoMachine from '../pages/machine/infoMachine';
 
 import AddMachine from '../pages/machine/addMachine';
 import ListMachine from '../pages/machine/listaMachine';
-import * as React from 'react';
-import { Ionicons } from '@expo/vector-icons';
-import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../pages/enterprise/home';
-// import { FontAwesome5 } from '@expo/vector-icons'; 
-// import Profile from '../pages/enterprise/profile';
 
 const Tab = createBottomTabNavigator();
+const AppStack = createStackNavigator();
+
+function PageInfoMachine(){
+
+    return(
+        <AppStack.Navigator>
+            <AppStack.Screen 
+                name="listaMachine" 
+                component={ListMachine}
+                options={{ headerShown: false }}
+                />
+            <AppStack.Screen 
+                name="infoMachine" 
+                component={InfoMachine}
+                options={{ headerShown: false }}
+            />
+        </AppStack.Navigator>
+    );
+}
 
 export default function App() {
     return (
@@ -32,7 +52,7 @@ export default function App() {
                 <Ionicons name="add-circle-outline" size={size} color="white" />
             ),
             }} />
-        <Tab.Screen name="Lista" component={ListMachine} options={{
+        <Tab.Screen name="Lista" component={PageInfoMachine} options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
                 <Ionicons name="list" size={size} color="white" />
@@ -40,5 +60,6 @@ export default function App() {
             }} />
         
     </Tab.Navigator>
+    
     );
 }

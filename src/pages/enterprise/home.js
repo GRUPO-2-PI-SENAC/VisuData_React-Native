@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, Dimensions } from 'react-native';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
