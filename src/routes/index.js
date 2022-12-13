@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import { createStackNavigator } from '@react-navigation/stack';
-
 import AddMachine from '../pages/machine/addMachine';
 import ListMachine from '../pages/machine/listaMachine';
 import Home from '../pages/enterprise/home';
@@ -95,7 +93,8 @@ export default function App() {
                 <Ionicons name="list" size={size} color="white" />
             ),
             headerShown: false
-            }} />
+            }} 
+        />
         
     </Tab.Navigator>
     

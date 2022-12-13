@@ -3,18 +3,6 @@ import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
 // import { Grandeza, Campo} from './addMachine';
 
-let category = "";
-let brand = ""; 
-let tag = "";
-let model = "";
-let minTemp = "";
-let maxTemp = "";
-let minVibration = "";
-let maxVibration = "";
-let minNoise = "";
-let maxNoise = ""; 
-let serialNumber= "";
-
 function Grandeza(props) {
     return(
         <View style={styles.rowGrandeza}>
@@ -96,31 +84,31 @@ export default function EditMachine() {
                     </View>
                     <View >
                         <Text style={styles.texto}>Categoria</Text>
-                        <TextInput style={styles.input} value={machines.category} onChangeText={text => category = text}/>
+                        <TextInput style={styles.input} value={machines.category} onChange={(e) => { setMachines({ ...machines, category: e.target.value }) }}/>
                     </View>
                 </View>
                 <View style={styles.row}>
                     <View >
                         <Text style={styles.texto}>Modelo</Text>
-                        <TextInput style={styles.input} value={machines.model} onChangeText={text => model = text} />
+                        <TextInput style={styles.input} value={machines.model} onChange={(e) => { setMachines({ ...machines, model: e.target.value }) }} />
                     </View>
                     <View >
                         <Text style={styles.texto}>Tag</Text>
-                        <TextInput style={styles.input} value={machines.tag} onChangeText={text => tag = text}/>
+                        <TextInput style={styles.input} value={machines.tag} onChange={(e) => { setMachines({ ...machines, tag: e.target.value }) }}/>
                     </View>
                 </View>
 
                 <Text style={styles.textoSerie}>Numero de série</Text>
-                <TextInput style={styles.inputSerie} value={machines.serialNumber} onChangeText={text => serialNumber = text} />
+                <TextInput style={styles.inputSerie} value={machines.serialNumber} onChange={(e) => { setMachines({ ...machines, serialNumber: e.target.value }) }} />
 
                 <View style={styles.rowGrandeza}>
                     <View >
                         <Text style={styles.textoGrandeza}>Mínimo</Text>
-                        <TextInput style={styles.inputGrandeza} value={machines.minTemp} onChangeText={text => minTemp = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.minTemp} onChange={(e) => { setMachines({ ...machines, minTemp: e.target.value }) }}/>
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Máximo</Text>
-                        <TextInput style={styles.inputGrandeza} value={machines.maxTemp} onChangeText={text => maxTemp = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.maxTemp} onChange={(e) => { setMachines({ ...machines, maxTemp: e.target.value }) }} />
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Temperatura</Text>
@@ -130,11 +118,11 @@ export default function EditMachine() {
                 <View style={styles.rowGrandeza}>
                     <View >
                         <Text style={styles.textoGrandeza}>Mínimo</Text>
-                        <TextInput style={styles.inputGrandeza} value={machines.minVibration} onChangeText={text => minVibration = text}/>
+                        <TextInput style={styles.inputGrandeza} value={machines.minVibration} onChange={(e) => { setMachines({ ...machines, minVibration: e.target.value }) }}/>
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Máximo</Text>
-                        <TextInput style={styles.inputGrandeza} value={machines.maxVibration} onChangeText={text => maxVibration = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.maxVibration} onChange={(e) => { setMachines({ ...machines, maxVibration: e.target.value }) }}/>
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Vibração</Text>
@@ -144,11 +132,11 @@ export default function EditMachine() {
                 <View style={styles.rowGrandeza}>
                     <View >
                         <Text style={styles.textoGrandeza}>Mínimo</Text>
-                        <TextInput style={styles.inputGrandeza} value={machines.minNoise} onChangeText={text => minNoise = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.minNoise} onChange={(e) => { setMachines({ ...machines, minNoise: e.target.value }) }}/>
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Máximo</Text>
-                        <TextInput style={styles.inputGrandeza} value={machines.maxNoise} onChangeText={text => maxNoise = text} />
+                        <TextInput style={styles.inputGrandeza} value={machines.maxNoise} onChange={(e) => { setMachines({ ...machines, maxNoise: e.target.value }) }}/>
                     </View>
                     <View >
                         <Text style={styles.textoGrandeza}>Ruído</Text>
