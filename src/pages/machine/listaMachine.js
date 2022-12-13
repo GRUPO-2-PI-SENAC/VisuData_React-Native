@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 // import { FadeOutToBottomAndroidSpec } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionSpecs';
 
@@ -20,31 +21,39 @@ function Header(props){
     );
   }
 
-function Status(){
-    return(
-        <span class="badge text-bg-danger"> </span>
-    );
-}
-
 function Cell(props){
 
     const navigation = useNavigation();
 
     return(        
-    <TouchableOpacity style={styles.buttonCell}  onPress={() => navigation.navigate('infoMachine')}>
+    <TouchableOpacity style={styles.buttonCell} >
         <View style={styles.row}>
             <Text style={styles.textCellTopMod}>{props.modelo}</Text> 
             <Text style={styles.textCellTopSerie}>{props.serie}</Text> 
         </View>
         <View style={styles.row}>
-            <Text style={styles.textCellBottom}><Status/>{props.temperatura}</Text> 
-            <Text style={styles.textCellBottom}><Status/>{props.ruido}</Text> 
-            <Text style={styles.textCellBottom}><Status/>{props.vibracao}</Text> 
+            <Text style={styles.textCellBottom}>{props.temperatura}</Text> 
+            <Text style={styles.textCellBottom}>{props.ruido}</Text> 
+            <Text style={styles.textCellBottom}>{props.vibracao}</Text> 
         </View>
     </TouchableOpacity>
     
     );
 } 
+
+function Icons(){
+
+    return(
+        <View style={styles.colIcons}>
+            <TouchableOpacity style={styles.buttonIcon}>
+                <Ionicons name="brush" color="green" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonIcon}>
+                <Ionicons name="trash" color="red" />
+            </TouchableOpacity>
+        </View> 
+    );
+}
 
 
 export default function ListMachine() {
@@ -52,13 +61,16 @@ export default function ListMachine() {
     return (
         <View style={styles.container}>
             <Header titulo="Lista de Máquinas"/>
-
-            <Cell style={styles.buttonCell}
-            modelo={modelo} 
-            serie={serie} 
-            temperatura={temperatura} 
-            ruido={ruido} 
-            vibracao={vibracao} />
+            <View style={styles.row}>
+                <Cell 
+                    modelo={modelo} 
+                    serie={serie} 
+                    temperatura={temperatura} 
+                    ruido={ruido} 
+                    vibracao={vibracao} 
+                />
+                <Icons/>
+            </View>
         </View>
     );
 }
@@ -67,13 +79,13 @@ const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
+
     container: {
         width: screenWidth,
         height: screenHeight,
         backgroundColor: '#fff',
         alignItems: 'center',
-        flex:1,
-        
+        flex:1,  
     },
 
     header: {
@@ -84,16 +96,6 @@ const styles = StyleSheet.create({
     textHeader: {
         fontSize: 27,
     },
-    
-    buttonCell: {
-        height: screenHeight * 0.1,
-        width: screenWidth * 0.9,
-        backgroundColor: '#E9F0F8', 
-        borderRadius: 10,
-        justifyContent: 'center',
-        marginBottom: 10,
-
-    },
 
     textCellTopMod: {
         fontSize: 21,
@@ -101,6 +103,7 @@ const styles = StyleSheet.create({
         color: '#09427D',
         fontWeight: 'bold',
         textAlign: 'left',
+        marginLeft: 2,
     },
     textCellTopSerie: {
         fontSize: 21,
@@ -108,6 +111,7 @@ const styles = StyleSheet.create({
         color: '#09427D',
         fontWeight: 'bold',
         textAlign: 'right',
+        marginRight: 2,
     },
     textCellBottom: {
         marginTop: 5,
@@ -117,17 +121,24 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        
+        justifyContent: 'center',  
     },
-    status: {
-        backgroundColor: '#A80202',
-        color: '#A80202',
-        height: 5,
-        borderRadius: 50,
-        fontSize: 10,
-        
+    buttonIcon: {
+        width: screenWidth * 0.1,
+        height: screenHeight * 0.05,
+        backgroundColor: '#E9F0F8', 
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
-    
+    buttonCell: {
+        height: screenHeight * 0.1,
+        width: screenWidth * 0.75,
+        backgroundColor: '#E9F0F8', 
+        borderRadius: 10,
+        justifyContent: 'center',
+        marginBottom: 10,
+    },
+
 });

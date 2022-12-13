@@ -12,23 +12,6 @@ import Home from '../pages/enterprise/home';
 const Tab = createBottomTabNavigator();
 const AppStack = createStackNavigator();
 
-function ListToInfoMachine(){
-
-    return(
-        <AppStack.Navigator>
-            <AppStack.Screen 
-                name="listaMachine" 
-                component={ListMachine}
-                options={{ headerShown: false }}
-                />
-            <AppStack.Screen 
-                name="infoMachine" 
-                component={InfoMachine}
-                options={{ headerShown: false }}
-            />
-        </AppStack.Navigator>
-    );
-}
 
 function AddToInfoMachine(){
 
@@ -88,7 +71,7 @@ export default function App() {
                 <Ionicons name="add-circle-outline" size={size} color="white" />
             ),
             }} />
-        <Tab.Screen name="Lista" component={ListToInfoMachine} options={{
+        <Tab.Screen name="Lista" component={ListMachine} options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
                 <Ionicons name="list" size={size} color="white" />
