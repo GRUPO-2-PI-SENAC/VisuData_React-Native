@@ -86,17 +86,16 @@ const styles = StyleSheet.create({
     },
     
     buttonCell: {
-        // flex: 0.15,
         height: screenHeight * 0.1,
         width: screenWidth * 0.9,
         backgroundColor: '#E9F0F8', 
         borderRadius: 10,
         justifyContent: 'center',
+        marginBottom: 10,
 
     },
 
     textCellTopMod: {
-        // marginHorizontal: 8,
         fontSize: 21,
         width: screenWidth * 0.4,
         color: '#09427D',
@@ -104,7 +103,6 @@ const styles = StyleSheet.create({
         textAlign: 'left',
     },
     textCellTopSerie: {
-        // marginHorizontal: 10,
         fontSize: 21,
         width: screenWidth * 0.4,
         color: '#09427D',

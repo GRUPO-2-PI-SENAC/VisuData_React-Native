@@ -1,4 +1,6 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 var categoryName = "";
 var brandName = "";
@@ -39,6 +41,9 @@ function Campo(props){
 }
 
 export default function AddMachine() {
+
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -63,8 +68,8 @@ export default function AddMachine() {
                 <Grandeza nome="Ruído"/>
             </View>
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.button}>
-                     <Text  style={styles.textoButton}>Cadastrar</Text>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('listaMachine')}>
+                     <Text style={styles.textoButton}>Cadastrar</Text>
                 </TouchableOpacity>
             </View>
             
