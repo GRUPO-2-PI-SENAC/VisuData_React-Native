@@ -13,42 +13,42 @@ export default function Home(navigation) {
                     {/* <Button styles= {styles.buttons1} onPress={() => navigation.navigate('ListMachine')}> */}
                     <View style={styles.row}>
                         <View style = {styles.healthyMc}>  
-                            <button style = {styles.firstSetBt} type="">  
+                            <TouchableOpacity style = {styles.firstSetBt} type="">  
                                 <View style= {styles.amountText}>
                                     <Text style= {styles.textBt}>FUNCIONANDO</Text>
                                     <Text style= {styles.textBt}>NORMALMENTE</Text> 
                                     <Text style= {styles.amountText}>2</Text> 
                                 </View>
-                            </button>
+                            </TouchableOpacity>
                         </View>
-                    <button style = {styles.secSetBt} type="">  
+                    <TouchableOpacity style = {styles.secSetBt} type="">  
                         <View style= {styles.amountText}>
                             <Text style= {styles.textBt}>FUNCIONANDO </Text>
                             <Text style= {styles.textBt}>EM ALERTA</Text>
                             <Text style= {styles.amountText}>0</Text> 
                         </View> 
-                    </button>
+                    </TouchableOpacity>
                     </View>  
                 </View> 
                 <View style = { styles.firstSet}>
                     {/* <Button styles= {styles.buttons1} onPress={() => navigation.navigate('ListMachine')}> */}
                     <View style={styles.row}>
                         <View style = {styles.healthyMc}>  
-                            <button style = {styles.trdSetBt} type="">  
+                            <TouchableOpacity style = {styles.trdSetBt} type="">  
                                 <View style= {styles.amountText}>
                                     <Text style= {styles.textBt}>EM ESTADO</Text>
                                     <Text style= {styles.textBt}>CRÍTICO</Text> 
                                     <Text style= {styles.amountText}>1</Text> 
                                 </View>
-                            </button>
+                            </TouchableOpacity>
                         </View>
-                    <button style = {styles.fortSetBt} type="">  
+                    <TouchableOpacity style = {styles.fortSetBt} type="">  
                         <View style= {styles.amountText}>
                         <Text style= {styles.textBt}>TODAS AS </Text>
                             <Text style= {styles.textBt}>MÁQUINAS </Text> 
                             <Text style= {styles.amountText}>15</Text> 
                         </View>
-                    </button>
+                    </TouchableOpacity>
                     </View>  
                 </View> 
             </View>
@@ -57,16 +57,16 @@ export default function Home(navigation) {
             </View>
             <View style = {styles.categories}>
                     <View style={styles.row}>
-                        <button style={styles.firstSetCatBt} type="">Motores</button>
-                        <button style={styles.firstSetCatBt} type="">Injetoras</button>
+                        <TouchableOpacity style={styles.firstSetCatBt} type="">Motores</TouchableOpacity>
+                        <TouchableOpacity style={styles.firstSetCatBt} type="">Injetoras</TouchableOpacity>
                     </View>             
                 <View style={styles.row}>
-                    <button style={styles.secSetCatBt} type="">Sensores</button>
-                    <button style={styles.secSetCatBt}type="">Extratoras</button>
+                    <TouchableOpacity style={styles.secSetCatBt} type="">Sensores</TouchableOpacity>
+                    <TouchableOpacity style={styles.secSetCatBt}type="">Extratoras</TouchableOpacity>
                 </View>
                 <View style={styles.row}>
-                    <button  style={styles.thirdSetCatBt} type="">Empilhadeiras</button>
-                    <button  style={styles.thirdSetCatBt} type="">Esteiras</button>
+                    <TouchableOpacity  style={styles.thirdSetCatBt} type="">Empilhadeiras</TouchableOpacity>
+                    <TouchableOpacity  style={styles.thirdSetCatBt} type="">Esteiras</TouchableOpacity>
                 </View>
             </View>        
         </View>   
@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
     },
     body: {
         justifyContent: 'space-evenly',
-        marginLeft: '3%',
         fontFamily: 'Montserrat',
 
     },
@@ -96,6 +95,7 @@ const styles = StyleSheet.create({
         fontSize: '25px',
         color: '#212529',
         fontFamily: 'Calibri',
+        marginLeft: '4%'
 
         
 
@@ -117,27 +117,29 @@ const styles = StyleSheet.create({
         fontSize: '25px',
         fontWeight: 'bold',
         fontFamily: 'Helvetica',
-        marginTop: '3%',
+        marginTop: '5%',
         textAlign: 'justify',
-        marginLeft: '2%'
+        marginLeft: '5%'
 
 
     },
     catSpacing: {
-        marginTop: '2%'
+        marginTop: '2%',
+        marginBottom: '2%'
     },
 
     textBt:{
         fontSize: '18px',
         fontFamily: 'Calibri',
-        marginLeft: '2%'
+        marginLeft: '2%',
 
     },    
     categories: {
         fontFamily: 'Calibri',
         fontSize: '18px',
         marginTop: '4%',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
+
 
     },
     row: {
@@ -148,9 +150,6 @@ const styles = StyleSheet.create({
     },
     firstSetBt: {
         backgroundColor: 'white',
-        minWidth: '115px',
-        width: '210px',
-        height: '118px',
         borderLeftColor: '#0D9B5B',
         borderBottomColor: 'transparent',
         borderTopColor: 'transparent',
@@ -159,14 +158,13 @@ const styles = StyleSheet.create({
         borderLeftWidth: '5px',
         marginTop:'30px',
         marginLeft: '8%',
-        textAlign: 'justify'
+        textAlign: 'justify',
+        height: screenHeight * 0.15,
+        width: screenWidth * 0.4,
         
     },
     secSetBt: {
         backgroundColor: 'white',
-        minWidth: '115px',
-        width: '210px',
-        height: '118px',
         borderLeftColor: '#F6C23E',
         borderBottomColor: 'transparent',
         borderTopColor: 'transparent',
@@ -175,16 +173,13 @@ const styles = StyleSheet.create({
         borderLeftWidth: '5px',
         marginTop:'30px',
         marginLeft: '8%',
-        textAlign: 'justify'
-
-
+        textAlign: 'justify',
+        height: screenHeight * 0.15,
+        width: screenWidth * 0.4,
         
     },
     trdSetBt: {
         backgroundColor: 'white',
-        minWidth: '115px',
-        width: '210px',
-        height: '118px',
         borderLeftColor: '#E74A3B',
         borderBottomColor: 'transparent',
         borderTopColor: 'transparent',
@@ -194,6 +189,8 @@ const styles = StyleSheet.create({
         marginTop:'30px',
         marginLeft: '8%',
         textAlign: 'justify',
+        height: screenHeight * 0.15,
+        width: screenWidth * 0.4,
         
 
 
@@ -201,9 +198,6 @@ const styles = StyleSheet.create({
 
     fortSetBt: {
         backgroundColor: 'white',
-        minWidth: '115px',
-        width: '210px',
-        height: '118px',
         borderLeftColor: '#D2D2D2',
         borderBottomColor: 'transparent',
         borderTopColor: 'transparent',
@@ -213,40 +207,41 @@ const styles = StyleSheet.create({
         marginTop:'30px',
         marginLeft: '8%',
         textAlign: 'justify',
+        height: screenHeight * 0.15,
+        width: screenWidth * 0.4,
 
     },
 
     firstSetCatBt: {
         backgroundColor: '#09427D',
         border: 'none',
-        height: '56px',
         textAlign: 'center',
         borderRadius: '10px',
         color: 'white',
         marginBottom: '2%',
         marginLeft: '5%',
-        minWidth: '118px',
         fontSize: '20px',
-        width: '200px',
-        marginTop: '1%'
+        marginTop: '1%',
+        height: screenHeight * 0.06,
+        width: screenWidth * 0.4,
+        justifyContent: 'center'
+
 
     },
     
     secSetCatBt: {
         backgroundColor: '#09427D',
         border: 'none',
-        height: '56px',
         textAlign: 'center',
         borderRadius: '10px',
         color: 'white',
         marginBottom: '2%',
         marginLeft: '5%',
-        minWidth: '118px',
-        maxWidth: '225px',
         fontSize: '20px',
-        width: '200px',
-        marginTop: '2%'
-
+        marginTop: '2%',
+        height: screenHeight * 0.06,
+        width: screenWidth * 0.4,
+        justifyContent: 'center'
 
 
     },
@@ -254,8 +249,6 @@ const styles = StyleSheet.create({
     thirdSetCatBt: {
         backgroundColor: '#09427D',
         border: 'none',
-        width: '200px',
-        height: '56px',
         textAlign: 'center',
         borderRadius: '10px',
         color: 'white',
@@ -263,7 +256,10 @@ const styles = StyleSheet.create({
         marginLeft: '5%',
         minWidth: '118px',
         fontSize: '20px',
-        marginTop: '2%'
+        marginTop: '2%',
+        height: screenHeight * 0.06,
+        width: screenWidth * 0.4,
+        justifyContent: 'center'
 
 
     },
