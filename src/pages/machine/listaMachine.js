@@ -26,6 +26,9 @@ function Cell(props){
 
     return(        
     <TouchableOpacity style={styles.buttonCell} >
+        <View>
+            <Text style={styles.textHeaderCard}>Seleciona a Maquina</Text>
+        </View>
         <View style={styles.row}>
             <Text style={styles.textCellTopMod}>{props.modelo}</Text> 
             <Text style={styles.textCellTopSerie}>{props.serie}</Text> 
