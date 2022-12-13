@@ -1,28 +1,57 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react-native';
 
 
-var categoryName = "";
-var brandName = "";
-var modelName = "";
-var tag = ""; 
-var maxTemp = 0 ; 
-var minTemp = 0 ;
-var maxVibration = 0; 
-var minVibration = 0 ;
-var minNoise = 0 ; 
-var maxNoise = 0 ; 
+
+let category = "";
+let brand = ""; 
+let tag = "";
+let model = "";
+let minTemp = "";
+let maxTemp = "";
+let minVibration = "";
+let maxVibration, setMaxVibration = "";
+let minNoise, setMinNoise = "";
+let maxNoise, setMaxNoise = ""; 
+let serialNumber= "";
+
+
+async function sendForm(){
+    let response = await fetch('https://localhost:55186/machine/add',{
+       method: 'POST',
+       headers:{
+        Accept: 'application/json',
+        'Content-Type' : 'application/json'
+       },
+       body: JSON.stringify({
+        id: 1,
+                model: model,
+                serialNumber : serialNumber,
+                maxTemp: maxTemp,
+                minTemp: minTemp,
+                maxNoise: maxNoise,
+                minNoise: minNoise,
+                maxVibration: maxVibration,
+                minVibration: minVibration,
+                category: category,
+                tag: tag,
+                brand: brand,
+                status: ""
+       }) 
+    });
+}
 
 function Grandeza(props) {
-    return(
+    return (
         <View style={styles.rowGrandeza}>
             <View >
                 <Text style={styles.textoGrandeza}>Mínimo</Text>
-                <TextInput style={styles.inputGrandeza}/>
+                <TextInput style={styles.inputGrandeza} />
             </View>
             <View >
                 <Text style={styles.textoGrandeza}>Máximo</Text>
-                <TextInput style={styles.inputGrandeza}/>
+                <TextInput style={styles.inputGrandeza} />
             </View>
             <View >
                 <Text style={styles.textoGrandeza}>{props.nome}</Text>
@@ -31,11 +60,11 @@ function Grandeza(props) {
     );
 }
 
-function Campo(props){
-    return(
+function Campo(props) {
+    return (
         <View >
             <Text style={styles.texto}>{props.nome}</Text>
-            <TextInput style={styles.input}/>
+            <TextInput style={styles.input} />
         </View>
     );
 }
@@ -48,31 +77,81 @@ export default function AddMachine() {
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.textoHeader}>Digite as principais informações da sua
-                <Text style={styles.textoHeaderSec}> máquina</Text></Text>
+                    <Text style={styles.textoHeaderSec}> máquina</Text></Text>
             </View>
             <View style={styles.main}>
                 <View style={styles.row}>
-                    <Campo nome="Marca"/>
-                    <Campo nome="Categoria"/>
+                    <View >
+                        <Text style={styles.texto}>"Marca"</Text>
+                        <TextInput style={styles.input} onChangeText={text=> brand = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.texto}>"Categoria"</Text>
+                        <TextInput style={styles.input} onChangeText={text => category = text}/>
+                    </View>
                 </View>
                 <View style={styles.row}>
-                    <Campo nome="Modelo"/>
-                    <Campo nome="Tag"/>
+                    <View >
+                        <Text style={styles.texto}>"Modelo"</Text>
+                        <TextInput style={styles.input}  onChangeText={text => model = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.texto}>"Tag"</Text>
+                        <TextInput style={styles.input}   onChangeText={text => tag = text}/>
+                    </View>
                 </View>
-                
-                    <Text style={styles.textoSerie}>Numero de série</Text>
-                    <TextInput style={styles.inputSerie}/>
-                
-                <Grandeza nome="Temperatura"/>
-                <Grandeza nome="Vibração"/>
-                <Grandeza nome="Ruído"/>
+
+                <Text style={styles.textoSerie}>Numero de série</Text>
+                <TextInput style={styles.inputSerie}  onChangeText={text => serialNumber = text} />
+
+                <View style={styles.rowGrandeza}>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Mínimo</Text>
+                        <TextInput style={styles.inputGrandeza}  onChangeText={text => minTemp = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Máximo</Text>
+                        <TextInput style={styles.inputGrandeza}  onChangeText={text => maxTemp = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>"Temperatura"</Text>
+                    </View>
+                </View>
+
+                <View style={styles.rowGrandeza}>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Mínimo</Text>
+                        <TextInput style={styles.inputGrandeza}  onChangeText={text => minVibration = text}/>
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Máximo</Text>
+                        <TextInput style={styles.inputGrandeza} onChangeText={text => maxVibration = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>"Vibração"</Text>
+                    </View>
+                </View>
+
+                <View style={styles.rowGrandeza}>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Mínimo</Text>
+                        <TextInput style={styles.inputGrandeza} onChangeText={text => minNoise = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>Máximo</Text>
+                        <TextInput style={styles.inputGrandeza} onChangeText={text => maxNoise = text} />
+                    </View>
+                    <View >
+                        <Text style={styles.textoGrandeza}>"Ruído"</Text>
+                    </View>
+                </View>
             </View>
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('listaMachine')}>
-                     <Text style={styles.textoButton}>Cadastrar</Text>
+                <TouchableOpacity style={styles.button} onPress={() => sendForm()}>
+                    <Text style={styles.textoButton}>Cadastrar</Text>
                 </TouchableOpacity>
             </View>
-            
+
         </View>
     );
 }
@@ -86,7 +165,7 @@ const styles = StyleSheet.create({
         height: screenHeight,
         backgroundColor: '#fff',
         alignItems: 'center',
-        flex:1,
+        flex: 1,
     },
 
     header: {
@@ -94,7 +173,7 @@ const styles = StyleSheet.create({
         paddingTop: 5,
         width: screenWidth * 0.9,
         alignSelf: 'center'
-    
+
     },
     textoHeader: {
         alignItems: 'center',
@@ -119,7 +198,7 @@ const styles = StyleSheet.create({
         width: screenWidth,
     },
 
-    texto:{
+    texto: {
         width: screenWidth * 0.4,
         marginTop: 10,
         fontWeight: 'bold',
@@ -135,14 +214,14 @@ const styles = StyleSheet.create({
 
     inputSerie: {
         borderBottomWidth: 1,
-        width: screenWidth * 0.85 ,
+        width: screenWidth * 0.85,
         height: 40,
         marginBottom: 5,
     },
-    
+
     textoSerie: {
         marginTop: 10,
-        fontWeight: 'bold', 
+        fontWeight: 'bold',
         width: screenWidth * 0.85,
     },
 
@@ -156,7 +235,7 @@ const styles = StyleSheet.create({
 
     textoGrandeza: {
         width: screenWidth * 0.27,
-        fontWeight: 'bold', 
+        fontWeight: 'bold',
     },
 
     inputGrandeza: {
@@ -176,7 +255,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         paddingLeft: 100,
         paddingRight: 100,
-        paddingTop: 10, 
+        paddingTop: 10,
         paddingBottom: 10,
         borderRadius: 10,
         backgroundColor: '#09427D',
