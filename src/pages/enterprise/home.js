@@ -11,12 +11,11 @@ const red = '#ff0000';
 function ButtonCard(props){
 
     const navigation = useNavigation();
-
     return(
         <TouchableOpacity 
             style = {styles.setBt}  
             onPress={() => navigation.navigate('listMachine')}>  
-                <View style= {styles.amountText}>
+                <View style={styles.amountText}>
                     <Text style= {styles.textBt}>{props.nameOne}</Text>
                     <Text style= {styles.textBt}>{props.nameTwo}</Text> 
                     <Text style= {styles.amountText}>{props.number}</Text> 
@@ -98,7 +97,7 @@ export default function Home(navigation) {
 }
 
 
-const styles = StyleSheet.create({
+const styles = (cor) => StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
@@ -164,7 +163,7 @@ const styles = StyleSheet.create({
 
     setBt: {
         backgroundColor: 'white',
-        borderLeftColor: '#0D9B5B',
+        borderLeftColor: {colorCell},
         borderRadius: '10px',
         borderLeftWidth: '5px',
         marginTop: 15,
