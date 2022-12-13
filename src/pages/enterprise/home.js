@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
-const red = '#ff0000';
 
 
 function ButtonCard(props){
@@ -30,10 +29,10 @@ function ButtonCat(props){
 
     return(
         <TouchableOpacity 
-        onPress={() => navigation.navigate('listMachine')}
-        style={styles.setCatBt}>
-            {props.categoria}
-    </TouchableOpacity>
+            onPress={() => navigation.navigate('listMachine')}
+            style={styles.setCatBt}>
+                {props.categoria}
+        </TouchableOpacity>
     );
 }
 
@@ -97,7 +96,7 @@ export default function Home(navigation) {
 }
 
 
-const styles = (cor) => StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
@@ -163,7 +162,7 @@ const styles = (cor) => StyleSheet.create({
 
     setBt: {
         backgroundColor: 'white',
-        borderLeftColor: {colorCell},
+        borderLeftColor: "#0D9B5B",
         borderRadius: '10px',
         borderLeftWidth: '5px',
         marginTop: 15,
