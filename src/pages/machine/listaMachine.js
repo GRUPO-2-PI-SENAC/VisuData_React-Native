@@ -29,14 +29,14 @@ function Cell(props){
         <View>
             <Text style={styles.textHeaderCard}>Seleciona a Maquina</Text>
         </View>
-        <View style={styles.row}>
+        <View style={styles.rowBody}>
             <Text style={styles.textCellTopMod}>{props.modelo}</Text> 
             <Text style={styles.textCellTopSerie}>{props.serie}</Text> 
         </View>
-        <View style={styles.row}>
-            <Text style={styles.textCellBottom}>{props.temperatura}</Text> 
-            <Text style={styles.textCellBottom}>{props.ruido}</Text> 
-            <Text style={styles.textCellBottom}>{props.vibracao}</Text> 
+        <View style={styles.rowFooter}>
+            <Text style={styles.textCellBottom}>{props.temperatura} ºC</Text> 
+            <Text style={styles.textCellBottom}>{props.ruido} Hz</Text> 
+            <Text style={styles.textCellBottom}>{props.vibracao} dB</Text> 
         </View>
     </TouchableOpacity>
     
@@ -104,41 +104,50 @@ const styles = StyleSheet.create({
         height: screenHeight,
         backgroundColor: '#fff',
         alignItems: 'center',
-        flex:1,  
+        flex:1
     },
 
     header: {
-        padding: 20,
-        alignItems: 'left',
-
+        padding: 20
     },
+
     textHeader: {
         fontSize: 27,
+        fontWeight: 'bold'
+    },
+
+    textHeaderCard: {
+        fontSize: 16,
+        padding: 10,
+        backgroundColor: '#09427D',
+        color: '#FFF',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10
     },
 
     textCellTopMod: {
-        fontSize: 21,
+        fontSize: 20,
         width: screenWidth * 0.4,
         color: '#09427D',
         fontWeight: 'bold',
         textAlign: 'left',
-        marginLeft: 2,
+        marginLeft: 10
     },
 
     textCellTopSerie: {
-        fontSize: 21,
+        fontSize: 20,
         width: screenWidth * 0.4,
         color: '#09427D',
         fontWeight: 'bold',
         textAlign: 'right',
-        marginRight: 2,
+        marginRight: 12,
     },
 
     textCellBottom: {
         marginTop: 5,
-        fontWeight: 'bold',
+        fontWeight: 400,
         width: screenWidth * 0.3,
-        textAlign: 'center',
+        textAlign: 'center'
     },
 
     row: {
@@ -146,22 +155,51 @@ const styles = StyleSheet.create({
         justifyContent: 'center',  
     },
 
+    rowBody: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 10,
+        marginTop: 8
+        
+    },
+
+    rowFooter: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 5,
+        minHeight: '20px',
+        borderTopWidth: 1,
+        borderColor: '#dee2e6'
+    },
+
     buttonIcon: {
         width: screenWidth * 0.1,
         height: screenHeight * 0.05,
         backgroundColor: '#E9F0F8', 
-        borderRadius: 10,
+        borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: 5
+    },
+
+    colIcons: {
+        marginTop: 30,
+        marginLeft: 10
     },
 
     buttonCell: {
-        height: screenHeight * 0.1,
-        width: screenWidth * 0.75,
-        backgroundColor: '#E9F0F8', 
-        borderRadius: 10,
+        // height: screenHeight * 0.1,
+        width: screenWidth * 0.75, 
+        borderColor: '#dee2e6',
+        borderWidth: 1,
+        borderRadius: 5,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
         justifyContent: 'center',
         marginBottom: 10,
+        minHeight: '100px',
+        marginBottom: 20,
+        marginTop: 10
     },
 
 });
