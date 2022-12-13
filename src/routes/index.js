@@ -3,7 +3,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import InfoMachine from '../pages/machine/infoMachine';
 
 import AddMachine from '../pages/machine/addMachine';
 import ListMachine from '../pages/machine/listaMachine';
@@ -23,8 +22,8 @@ function AddToInfoMachine(){
                 options={{ headerShown: false }}
                 />
             <AppStack.Screen 
-                name="infoMachine" 
-                component={InfoMachine}
+                name="listaMachine" 
+                component={ListMachine}
                 options={{ headerShown: false }}
             />
         </AppStack.Navigator>
