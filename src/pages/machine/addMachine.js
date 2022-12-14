@@ -81,22 +81,22 @@ export default function AddMachine() {
             </View>
             <View style={styles.main}>
                 <View style={styles.row}>
-                    <View >
-                        <Text style={styles.texto}>"Marca"</Text>
+                    <View>
+                        <Text style={styles.texto}>Marca</Text>
                         <TextInput style={styles.input} onChangeText={text=> brand = text} />
                     </View>
                     <View >
-                        <Text style={styles.texto}>"Categoria"</Text>
+                        <Text style={styles.texto}>Categoria</Text>
                         <TextInput style={styles.input} onChangeText={text => category = text}/>
                     </View>
                 </View>
                 <View style={styles.row}>
                     <View >
-                        <Text style={styles.texto}>"Modelo"</Text>
+                        <Text style={styles.texto}>Modelo</Text>
                         <TextInput style={styles.input}  onChangeText={text => model = text} />
                     </View>
                     <View >
-                        <Text style={styles.texto}>"Tag"</Text>
+                        <Text style={styles.texto}>Tag</Text>
                         <TextInput style={styles.input}   onChangeText={text => tag = text}/>
                     </View>
                 </View>
@@ -114,7 +114,7 @@ export default function AddMachine() {
                         <TextInput style={styles.inputGrandeza}  onChangeText={text => maxTemp = text} />
                     </View>
                     <View >
-                        <Text style={styles.textoGrandeza}>"Temperatura"</Text>
+                        <Text style={styles.textoGrandeza}>ºC Temperatura</Text>
                     </View>
                 </View>
 
@@ -128,7 +128,7 @@ export default function AddMachine() {
                         <TextInput style={styles.inputGrandeza} onChangeText={text => maxVibration = text} />
                     </View>
                     <View >
-                        <Text style={styles.textoGrandeza}>"Vibração"</Text>
+                        <Text style={styles.textoGrandeza}>Hz Vibração</Text>
                     </View>
                 </View>
 
@@ -142,7 +142,7 @@ export default function AddMachine() {
                         <TextInput style={styles.inputGrandeza} onChangeText={text => maxNoise = text} />
                     </View>
                     <View >
-                        <Text style={styles.textoGrandeza}>"Ruído"</Text>
+                        <Text style={styles.textoGrandeza}>dB Ruído</Text>
                     </View>
                 </View>
             </View>
@@ -178,6 +178,7 @@ const styles = StyleSheet.create({
     textoHeader: {
         alignItems: 'center',
         fontSize: 25,
+        marginTop: 30
     },
     textoHeaderSec: {
         fontSize: 25,
@@ -196,32 +197,32 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: screenWidth,
+        maxHeight: 80
     },
 
     texto: {
         width: screenWidth * 0.4,
-        marginTop: 10,
-        fontWeight: 'bold',
+        fontWeight: '500',
         marginHorizontal: 10,
     },
 
     input: {
         borderBottomWidth: 1,
         width: screenWidth * 0.4,
-        height: 40,
+        height: 30,
         marginHorizontal: 10,
     },
 
     inputSerie: {
         borderBottomWidth: 1,
         width: screenWidth * 0.85,
-        height: 40,
-        marginBottom: 5,
+        height: 34,
+        marginBottom: 5
     },
 
     textoSerie: {
         marginTop: 10,
-        fontWeight: 'bold',
+        fontWeight: '500',
         width: screenWidth * 0.85,
     },
 
@@ -231,17 +232,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: screenWidth,
+        maxHeight: 80,
+        marginTop: 20
     },
 
     textoGrandeza: {
         width: screenWidth * 0.27,
-        fontWeight: 'bold',
+        fontWeight: '500',
     },
 
     inputGrandeza: {
         borderBottomWidth: 1,
         width: screenWidth * 0.22,
-        height: 20,
+        height: 30,
         marginRight: 23,
         marginBottom: 10,
         alignSelf: 'left',
