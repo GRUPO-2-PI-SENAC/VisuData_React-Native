@@ -78,6 +78,7 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
                 <Ionicons name="home-outline" color='white' size={size} />
             ),
+            headerShown: false
             }} 
         />
         <Tab.Screen name="Adicionar" component={AddToInfoMachine} options={{

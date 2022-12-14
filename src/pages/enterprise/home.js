@@ -1,15 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Header } from '@react-navigation/stack';
 
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
+function HeaderHome (props){
+    return(
+        <View style={styles.headerHome}>
+            <Text style={styles.textHeader}>{props.title}</Text>
+        </View>
+    );
+}
 
 function ButtonCard(props){
 
     const navigation = useNavigation();
+
     return(
         <TouchableOpacity 
             style = {styles.setBt}  
@@ -38,62 +47,69 @@ function ButtonCat(props){
 
 export default function Home(navigation) {
     return(
-        <View style = {styles.body}>
-            <Text style = {styles.mainTexts}> Visão Geral</Text>
-            <View style = {styles.good}>
-                <View >
-                    <View style={styles.row}>
-                        <View style = {styles.healthyMc}>  
+        <View>
+            <HeaderHome
+                    title="VisuData"
+            />
+            <View style = {styles.body}>
+                
+                <Text style = {styles.mainTexts}> Visão Geral</Text>
+                <View style = {styles.good}>
+                    <View >
+                        <View style={styles.row}>
+                            <View style = {styles.healthyMc}>  
+                                <ButtonCard
+                                    
+                                    nameOne="FUNCIONANDO"
+                                    nameTwo=""
+                                    number="2"
+                                />
+                            </View>
                             <ButtonCard
-                                nameOne="FUNCIONANDO"
-                                nameTwo="NORMALMENTE"
-                                number="2"
-                            />
-                        </View>
-                        <ButtonCard
-                                style={styles.red}
-                                nameOne="FUNCIONANDO"
-                                nameTwo="EM ALERTA"
-                                number="0"
-                            />
-                    </View>  
-                </View> 
-                <View >
-                    <View style={styles.row}>
-                        <View style = {styles.healthyMc}>  
+                                    
+                                    nameOne="FUNCIONANDO"
+                                    nameTwo="EM ALERTA"
+                                    number="0"
+                                />
+                        </View>  
+                    </View> 
+                    <View >
+                        <View style={styles.row}>
+                            <View style = {styles.healthyMc}>  
+                                <ButtonCard
+                                    nameOne="EM ESTADO"
+                                    nameTwo="CRÍTICO"
+                                    number="1"
+                                />
+                            </View>
                             <ButtonCard
-                                nameOne="EM ESTADO"
-                                nameTwo="CRÍTICO"
-                                number="1"
-                            />
-                        </View>
-                        <ButtonCard
-                                
-                                nameOne="TODAS AS"
-                                nameTwo="MÁQUINAS"
-                                number="15"
-                            />
-                    </View>  
-                </View> 
-            </View>
-            <View style = {styles.catSpacing}>
-                <Text style = {styles.mainTexts}> Categorias </Text> 
-            </View>
-            <View style = {styles.categories}>
-                <View style={styles.row}>
-                    <ButtonCat categoria="Motores"/>
-                    <ButtonCat categoria="Injetoras"/>
-                </View>             
-                <View style={styles.row}>
-                    <ButtonCat categoria="Sensores"/>
-                    <ButtonCat categoria="Extratoras"/>
+                                    
+                                    nameOne="TODAS AS"
+                                    nameTwo="MÁQUINAS"
+                                    number="15"
+                                />
+                        </View>  
+                    </View> 
                 </View>
-                <View style={styles.row}>
-                    <ButtonCat categoria="Empilhadeiras"/>
-                    <ButtonCat categoria="Esteiras"/>
+                <View style = {styles.catSpacing}>
+                    <Text style = {styles.mainTexts}> Categorias </Text> 
                 </View>
-            </View>        
-        </View>   
+                <View style = {styles.categories}>
+                    <View style={styles.row}>
+                        <ButtonCat categoria="Motores"/>
+                        <ButtonCat categoria="Injetoras"/>
+                    </View>             
+                    <View style={styles.row}>
+                        <ButtonCat categoria="Sensores"/>
+                        <ButtonCat categoria="Extratoras"/>
+                    </View>
+                    <View style={styles.row}>
+                        <ButtonCat categoria="Empilhadeiras"/>
+                        <ButtonCat categoria="Esteiras"/>
+                    </View>
+                </View>        
+            </View>   
+        </View>
     );
 }
 
@@ -112,7 +128,16 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat',
         marginTop: 20
     },
-
+    headerHome: {
+        backgroundColor: '#2b5690',
+        padding: 20,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10
+    },
+    textHeader: {
+        color: '#FFF',
+        fontSize: 24
+    },
     mainTexts: {
         marginTop: '2',
         fontWeight: 'bold', 
@@ -137,9 +162,9 @@ const styles = StyleSheet.create({
         fontSize: '20px',
         fontWeight: 'bold',
         fontFamily: 'Helvetica',
-        marginTop: '5%',
+        marginTop: '8%',
         textAlign: 'justify',
-        marginLeft: '5%'
+        marginLeft: '5%',
     },
     catSpacing: {
         marginTop: '4%',
@@ -164,19 +189,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignSelf: 'left',
     },
-
     setBt: {
         backgroundColor: 'white',
-        borderLeftColor: "#09427D",
         borderRadius: '10px',
-        borderLeftWidth: '5px',
         marginTop: 15,
         marginHorizontal: 10,
-        height: screenHeight * 0.15,
+        height: screenHeight * 0.14,
         width: screenWidth * 0.4,
+        borderLeftColor: "#09427D",
+        borderLeftWidth: '5px',
     },
-
-
     setCatBt: {
         backgroundColor: '#09427D',
         marginHorizontal: 10,
